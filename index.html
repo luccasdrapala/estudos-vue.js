@@ -13,7 +13,7 @@
 <body>
 
     <div id="app">
-        <input type="text" @keyup="imprimirTexto"><br>
+        <input type="text" @keyup.enter="imprimirTexto('Enviando parametro', 666, a)"><br>
         <button v-on:click="mensagemAlerta()">alert</button>
     </div>
     
@@ -21,10 +21,12 @@
 
         const vm = new Vue(options = {
             el: '#app', 
-            data: {},
+            data: {
+                a: true
+            },
             methods: {
-                imprimirTexto () {
-                    console.log('Teste')
+                imprimirTexto(txt, num, bol) {
+                    console.log(txt, num, bol)
                 },
                 mensagemAlerta () {
                     alert('Grande alert, salve')
