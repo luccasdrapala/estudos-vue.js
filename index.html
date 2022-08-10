@@ -8,33 +8,28 @@
     <script src="vue.js"></script>
     <style>
 
-        .verde {
-            background-color: green
-        }
-
-        .azul {
-            background-color: blue;
-        }
-
     </style>
 </head>
 <body>
 
     <div id="app">
-        {{mensagem}}: {{ 2 + 2 }}
-        <input type="text" :value="2 + 2" :class="teste ? estilo : 'azul'"> <!--if ternário-->
+        <input type="text" @keyup="imprimirTexto"><br>
+        <button v-on:click="mensagemAlerta()">alert</button>
     </div>
     
     <script>
 
         const vm = new Vue(options = {
-            el: '#app', //seleciona elemento pelo id '.app' seleciona pela classe
-            data: {
-                mensagem: 'Expressão',
-                estilo: 'verde',
-                teste: true
-            },
-            methods: {}
+            el: '#app', 
+            data: {},
+            methods: {
+                imprimirTexto () {
+                    console.log('Teste')
+                },
+                mensagemAlerta () {
+                    alert('Grande alert, salve')
+                }
+            }
 
         }) //vm = ViewModel
 
