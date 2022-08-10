@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,30 +10,23 @@
 <body>
 
     <div id="app">
-        somar: {{ somar() }} <br>
-        subtrair: {{ subtrair() }} <br>
-        multiplicar: {{ multiplicar() }} <br>
-        dividir: {{ dividir() }}
+        somar: {{ somar() }}
     </div>
+
+    <h2>Teste</h2>
     
     <script>
 
         const vm = new Vue(options = {
             el: '#app', //seleciona elemento pelo id '.app' seleciona pela classe
-            data: { },
+            data: {
+                n1: 1,
+                n2: 664
+            },
             methods: {
-               somar: function somar() { //convencional
-                return 333 + 333
-               },
-               subtrair: function() { //função anonima
-                return 333 - 1
-               },
-               multiplicar: () => { //arrow
-                return 70 * 2
-               },
-               dividir() { //forma enxuta
-                return 4 / 2
-               },       
+                somar() {
+                    return this.n1 + this.n2
+                }
             }
 
         }) //vm = ViewModel
