@@ -10,7 +10,10 @@
 <body>
 
     <div id="app">
-        somar: {{ somar() }}
+        <a v-bind:href="site">Site</a>
+        <p>{{str}}</p>
+        <input type="text" v-bind:placeholder="place">
+        <input type="checkbox" v-bind:checked="checkboxStatus">
     </div>
 
     <h2>Teste</h2>
@@ -20,14 +23,12 @@
         const vm = new Vue(options = {
             el: '#app', //seleciona elemento pelo id '.app' seleciona pela classe
             data: {
-                n1: 1,
-                n2: 664
+                str: 'Entendendo o v-bind',
+                site: 'https://luccasdrapala.epizy.com/',
+                place: 'Placeholder v-bind',
+                checkboxStatus: true
             },
-            methods: {
-                somar() {
-                    return this.n1 + this.n2
-                }
-            }
+            methods: {}
 
         }) //vm = ViewModel
 
