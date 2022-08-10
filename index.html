@@ -10,7 +10,11 @@
 <body>
 
     <div id="app">
-        {{mensagem}}
+        Mensagem: {{mensagem}} <br>
+        Valor total: {{ valorTotal }} <br>
+        Hobbies: {{ hobbies[1] }}, {{ hobbies[2] }}, {{ hobbies[3] }} <br>
+        Perfil: {{ perfil.nome }}, {{ perfil.site }} <br>
+        Perfil->Cursos: {{ perfil.cursos[0] }}, {{ perfil.cursos[1].nome }}
     </div>
     
     <script>
@@ -18,10 +22,26 @@
         const vm = new Vue(options = {
             el: '#app', //seleciona elemento pelo id '.app' seleciona pela classe
             data: {     //guarda variaveis reativos
-                mensagem: 'Primeiro template controlado pelo Vue'
+                mensagem: 'Primeiro template controlado pelo Vue', //str
+                valorTotal: 150.47, //float
+                log: false, //bool
+                hobbies: [ //array
+                    'Estudar',
+                    'Correr',
+                    'Banda de HC'
+                ],
+                perfil: { //obj
+                    nome: 'Luccas H. Brambilla Drapala',
+                    site: 'www.luccasdrapala.epizy.com',
+                    idade: 23,
+                    cursos: [ //array
+                        { nome: 'Laravel', cargaHoraria: '50 horas' },
+                        { nome: 'Flexbox', cargaHoraria: '12 horas' }
+                    ]
+                }
             }
         }) //vm = ViewModel
-        
+
         console.log(vm)
 
     </script>
