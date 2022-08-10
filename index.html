@@ -10,36 +10,32 @@
 <body>
 
     <div id="app">
-        Mensagem: {{mensagem}} <br>
-        Valor total: {{ valorTotal }} <br>
-        Hobbies: {{ hobbies[1] }}, {{ hobbies[2] }}, {{ hobbies[3] }} <br>
-        Perfil: {{ perfil.nome }}, {{ perfil.site }} <br>
-        Perfil->Cursos: {{ perfil.cursos[0] }}, {{ perfil.cursos[1].nome }}
+        somar: {{ somar() }} <br>
+        subtrair: {{ subtrair() }} <br>
+        multiplicar: {{ multiplicar() }} <br>
+        dividir: {{ dividir() }}
     </div>
     
     <script>
 
         const vm = new Vue(options = {
             el: '#app', //seleciona elemento pelo id '.app' seleciona pela classe
-            data: {     //guarda variaveis reativos
-                mensagem: 'Primeiro template controlado pelo Vue', //str
-                valorTotal: 150.47, //float
-                log: false, //bool
-                hobbies: [ //array
-                    'Estudar',
-                    'Correr',
-                    'Banda de HC'
-                ],
-                perfil: { //obj
-                    nome: 'Luccas H. Brambilla Drapala',
-                    site: 'www.luccasdrapala.epizy.com',
-                    idade: 23,
-                    cursos: [ //array
-                        { nome: 'Laravel', cargaHoraria: '50 horas' },
-                        { nome: 'Flexbox', cargaHoraria: '12 horas' }
-                    ]
-                }
+            data: { },
+            methods: {
+               somar: function somar() { //convencional
+                return 333 + 333
+               },
+               subtrair: function() { //função anonima
+                return 333 - 1
+               },
+               multiplicar: () => { //arrow
+                return 70 * 2
+               },
+               dividir() { //forma enxuta
+                return 4 / 2
+               },       
             }
+
         }) //vm = ViewModel
 
         console.log(vm)
