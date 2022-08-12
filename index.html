@@ -14,7 +14,7 @@
 
     <div id="app">
         <input type="text" @keyup.enter="imprimirTexto('Enviando parametro', 666, a)"><br>
-        <button v-on:click="mensagemAlerta()">alert</button>
+        <button @click="mensagemAlerta($event)">alert</button>
     </div>
     
     <script>
@@ -28,8 +28,9 @@
                 imprimirTexto(txt, num, bol) {
                     console.log(txt, num, bol)
                 },
-                mensagemAlerta () {
+                mensagemAlerta (evento) {
                     alert('Grande alert, salve')
+                    console.log(evento)
                 }
             }
 

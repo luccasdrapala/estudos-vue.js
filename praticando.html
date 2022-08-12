@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iniciando com Vue JS</title>
+    <script src="vue.js"></script>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <div id="app">
+        <div class="borda div-principal" :class="cor">
+            Cor: {{cor}} <hr>
+            Eixo X: {{ eixoX}} <br>
+            Eixo Y: {{ eixoY }}
+        </div>
+            <hr>
+            <div @mouseout="mudarCor('')" @mouseover="mudarCor('verde')" @click="mudarCor('verde')" class="borda div-comun verde"></div>
+            <div @mouseout="mudarCor('')" @mouseover="mudarCor('azul')" @click="mudarCor('azul')" class="borda div-comun azul"></div>
+            <div 
+                @mousemove="coordenadas($event)"
+                @mouseout="mudarCor(''), zeraCoordenadas()" 
+                @mouseover="mudarCor('vermelho')" 
+                @click="mudarCor('vermelho')" 
+                class="borda div-comun vermelho">
+            </div>
+    </div>
+    
+    <script>
+
+        const vm = new Vue(options = {
+            el: '#app', 
+            data: {
+                cor: '',
+                eixoX: 0,
+                eixoY: 0
+            },
+            methods: {
+                mudarCor(cor) {
+                    this.cor = cor
+                },
+                coordenadas(evento) {
+                    this.eixoX = evento.clientX
+                    this.eixoY = evento.clientY
+                },
+                zeraCoordenadas() {
+                    this.eixoX = ''
+                    this.eixoY = ''
+                }
+            }
+
+        }) //vm = ViewModel
+
+        console.log(vm)
+
+    </script>
+
+</body>
+</html>
