@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iniciando com Vue JS</title>
+    <script src="vue.js"></script>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <div id="app">
+        <a href="http://www.luccasdrapala.epizy.com/?i=2" 
+            target="_blank" 
+            @click.prevent="previnirComportamentoPadrão()"
+        >
+        Link
+        </a><br>
+        Mensagem: {{ msg }}
+        <hr>
+        <button @click.once="executarUmaVez()">Botão</button>
+        <p>Cliques: {{cliques}}</p>
+        <hr>
+        <form action="#" @submit.once="prevenirUmaVez()">
+            <button type="submit">Enviar</button>
+        </form><br>
+        Submit: {{submit}}
+        <br>
+        <input type="text" @keyup.x="capturaTeclas($event)"> 
+        <br>
+        Quantidade de X: {{teclas}}
+
+
+    </div>
+    
+    <script>
+
+        const vm = new Vue(options = {
+            el: '#app', 
+            data: {
+                msg: '',
+                cliques: 0,
+                submit: '',
+                teclas: 0
+            },
+            methods: {
+                previnirComportamentoPadrão() {
+                    this.msg = 'Comportamento padrão ativado'
+                },
+                executarUmaVez() {
+                    this.cliques++
+                },
+                prevenirUmaVez() {
+                    this.submit = 'ACTION'
+                },
+                capturaTeclas(evento) {
+                    this.teclas++
+                }
+            }
+
+        }) //vm = ViewModel
+
+        console.log(vm)
+
+    </script>
+
+</body>
+</html>
