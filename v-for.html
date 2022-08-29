@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos Vue</title>
+    <script src="vue.js"></script>
+
+    <style>
+        .borda{ 
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div id="app">
+
+        <ul>
+            <li v-for="curso in cursos" v-text="curso"></li><!--Forma com v-text-->
+        </ul>
+        <hr>
+        <ul>
+            <li v-for="(aluno, key) in alunos">{{aluno}} - {{key}}</li><!--Forma com mustache-->
+        </ul>
+        <hr>
+        <table border="">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(curso, key) in cursos2">
+                    <td>{{key}}</td>
+                    <td>{{curso.titulo}}</td>
+                    <td>{{curso.descricao}}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+
+    <script>
+
+        const vm = new Vue ({
+            el: '#app',
+            data: {
+              cursos: [
+                'Laravel',
+                'vue.js',
+                'HTML5',
+                'CSS3',
+                'API Rest'
+              ],
+              alunos: [
+                'Luccas',
+                'João',
+                'Kauê'
+              ],
+                cursos2: {
+                    1000: {
+                        titulo:'Laravel', 
+                        descricao:'Curso de Laravel'
+                    },
+                    1001: {
+                        titulo: 'Banco de Dados', 
+                        descricao: 'Curso de Banco de Dados'
+                    }
+                }
+            },
+            methods: {
+    
+            }
+        })
+
+    </script>
+</body>
+</html>
