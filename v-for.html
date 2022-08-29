@@ -41,27 +41,44 @@
                     <td>{{curso.descricao}}</td>
                 </tr>
             </tbody>
+        </table><hr>
+
+        <table border="">
+            <thead>
+                <tr>
+                    <th>Turma</th>
+                    <th>Qtde. Alunos</th>
+                    <th>Bloco</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="({alunos, bloco},key) in turmas"><!--destructuring-->
+                    <td>{{key}}</td>
+                    <td>{{alunos}}</td>
+                    <td>{{bloco}}</td>
+                </tr>
+            </tbody>
         </table>
         
     </div>
 
     <script>
-
         const vm = new Vue ({
             el: '#app',
             data: {
-              cursos: [
-                'Laravel',
-                'vue.js',
-                'HTML5',
-                'CSS3',
-                'API Rest'
-              ],
-              alunos: [
-                'Luccas',
-                'João',
-                'Kauê'
-              ],
+                cursos: [
+                    'Laravel',
+                    'vue.js',
+                    'HTML5',
+                    'CSS3',
+                    'API Rest'
+                ],
+                alunos: [
+                    'Luccas',
+                    'João',
+                    'Kauê',
+                    'Victor'
+                ],
                 cursos2: {
                     1000: {
                         titulo:'Laravel', 
@@ -70,6 +87,20 @@
                     1001: {
                         titulo: 'Banco de Dados', 
                         descricao: 'Curso de Banco de Dados'
+                    }
+                },
+                turmas: {
+                    turma1: {
+                        alunos: 30,
+                        bloco: 'A'
+                    },
+                    turma2: {
+                        alunos: 29,
+                        bloco: 'B'
+                    },
+                    turma3: {
+                        alunos: 35,
+                        bloco: 'C'
                     }
                 }
             },
