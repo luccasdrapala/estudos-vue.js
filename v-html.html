@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estudos Vue</title>
+    <title>Diretiva V-if</title>
     <script src="vue.js"></script>
 
     <style>
@@ -15,9 +15,9 @@
 <body>
     
     <div id="app">
-
-
-        
+        <div v-html="elementoHTML">
+            textoo
+        </div>
     </div>
 
     <script>
@@ -25,7 +25,7 @@
         const vm = new Vue ({
             el: '#app',
             data: {
-                
+                elementoHTML: '<p>Esta é uma tag p</p><h3>este é um h3 dentro de uma string</h3>'
             },
             methods: {
     
@@ -33,5 +33,6 @@
         })
 
     </script>
+
 </body>
 </html>

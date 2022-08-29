@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estudos Vue</title>
+    <title>Diretiva V-if</title>
     <script src="vue.js"></script>
 
     <style>
         
+
     </style>
 
 </head>
@@ -16,8 +17,8 @@
     
     <div id="app">
 
+        <p v-text="texto"></p>
 
-        
     </div>
 
     <script>
@@ -25,13 +26,14 @@
         const vm = new Vue ({
             el: '#app',
             data: {
-                
+                texto: 'Texto inserido innerHTML'
             },
             methods: {
-    
+
             }
         })
 
     </script>
+
 </body>
 </html>

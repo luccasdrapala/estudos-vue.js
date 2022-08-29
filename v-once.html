@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estudos Vue</title>
+    <title>Estudo Vue</title>
     <script src="vue.js"></script>
 
     <style>
@@ -16,8 +16,12 @@
     
     <div id="app">
 
+        <p v-once>Saldo Inicial: {{saldo}}</p>
+        <p>Saldo Atualizado: {{saldo}}</p>
+        <input type="text" id="valor">
+        <button @click="creditar()">Creditar</button>
+        <button @click="debitar()">Debitar</button>
 
-        
     </div>
 
     <script>
@@ -25,13 +29,19 @@
         const vm = new Vue ({
             el: '#app',
             data: {
-                
+                saldo: 1000.0
             },
             methods: {
-    
+                creditar() {
+                    this.saldo += parseFloat(valor.value)
+                },
+                debitar() {
+                    this.saldo -= parseFloat(valor.value)
+                }
             }
         })
 
     </script>
+
 </body>
 </html>
