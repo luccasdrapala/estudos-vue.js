@@ -58,7 +58,13 @@
                     <td>{{bloco}}</td>
                 </tr>
             </tbody>
-        </table>
+        </table><hr>
+
+        <ul v-for="publi in publicacao" :key="publi.id" class="borda">
+            <li>id {{publi.id}} - {{publi.publicacao}}</li><br>
+            <input type="text">
+        </ul>
+        <button @click="misturaPubli()">Misturar</button>
         
     </div>
 
@@ -102,10 +108,23 @@
                         alunos: 35,
                         bloco: 'C'
                     }
-                }
+                },
+                publicacao: [
+                    {id: 0, publicacao: 'publicacao 1'},
+                    {id: 1, publicacao: 'publicacao 2'},
+                    {id: 2, publicacao: 'publicacao 3'}
+                ]
             },
             methods: {
-    
+                misturaPubli() {
+                    let misturado = []
+
+                    misturado[0] = this.publicacao[2]
+                    misturado[1] = this.publicacao[0]
+                    misturado[2] = this.publicacao[1]
+
+                    this.publicacao = misturado
+                }
             }
         })
 
