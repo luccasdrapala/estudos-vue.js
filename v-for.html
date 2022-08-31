@@ -23,6 +23,13 @@
         </ul>
         <hr>
         <ul>
+            <li v-for="c in comentarios">id {{c.id}} - {{c.comentario}}</li><!--Forma com v-text-->
+        </ul>
+        <button @click="adicionarElemento()">Adicionar</button>
+        <button @click="removeElemento()">Remover</button>
+        <button @click="modificarElemento()">Atualizar</button>
+        <hr>
+        <ul>
             <li v-for="(aluno, key) in alunos">{{aluno}} - {{key}}</li><!--Forma com mustache-->
         </ul>
         <hr>
@@ -72,6 +79,11 @@
         const vm = new Vue ({
             el: '#app',
             data: {
+                comentarios: [
+                    {id: 0, comentario: 'comentario 1'},
+                    {id: 1, comentario: 'comentario 2'},
+                    {id: 2, comentario: 'comentario 3'},
+                ],
                 cursos: [
                     'Laravel',
                     'vue.js',
@@ -124,6 +136,16 @@
                     misturado[2] = this.publicacao[1]
 
                     this.publicacao = misturado
+                },
+                adicionarElemento() {
+                    this.comentarios.push({id: 4, comentario: 'comentario 4'})
+                },
+                removeElemento() {
+                    this.comentarios.pop()
+                },
+                modificarElemento() {
+                    //this.$set(<array>, <chave>, <novo valor>)
+                    this.$set(this.comentarios, 1, {id: 1, comentario: 'Comentario Atualizado'})
                 }
             }
         })
