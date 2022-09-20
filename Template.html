@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos Vue</title>
+    <script src="vue.js"></script>
+
+    <style>
+        .borda{ 
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div id="app">
+        <template v-if="saudacao">
+            <h1>Boas Vindas</h1>
+            <p>Conteudo da TAG Template</p>
+        </template>
+
+        <div v-for="n in 10">
+            <p>2 x{{n}} = {{ 2*n }}</p>
+        </div>
+    </div>
+
+
+    <script>
+        const vm = new Vue ({
+            el: '#app',
+            data: {
+                saudacao: true
+            },
+            methods: {
+
+            }
+        })
+
+    </script>
+</body>
+</html>
