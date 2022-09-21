@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iniciando com Vue JS</title>
+    <script src="vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <p>{{paciente}}</p>
+        <input type="text" v-model="paciente" id="">
+    </div>
+    
+    <script>
+
+        const vm = new Vue({
+            el: '#app', 
+            data: {
+                paciente: 'joão da Silva'
+            },
+            methods: {
+            
+            },
+            computed: {
+
+            }
+
+        }) //vm = ViewModel
+
+        console.log(vm)
+
+    </script>
+
+</body>
+</html>
