@@ -15,6 +15,32 @@
     <div id="app">
         <p>{{paciente}}</p>
         <input type="text" v-model="paciente" id="">
+        <hr>
+
+        <input type="radio" value="f" v-model="sexo">Feminino
+        <input type="radio" value="m" v-model="sexo">Masculino
+        <br>{{sexo}}
+
+        <hr>
+
+        <select v-model="plano">
+            <option value="" disabled>selecione um elemento</option>
+            <option selected value="1">Basico 1</option>
+            <option value="2">Basico 2</option>
+            <option value="3">basico 3</option>
+        </select>
+        <br>{{plano}}
+        
+        <hr>
+        <input type="checkbox" value="100" v-model="doencas">Asma
+        <input type="checkbox" value="101" v-model="doencas">Diarreia
+        <input type="checkbox" value="102" v-model="doencas">Religião
+        <br>{{doencas}}
+
+        <hr>
+        <textarea v-model="diagnostico" cols="30" rows="10"></textarea>
+        <br>{{diagnostico}}
+
     </div>
     
     <script>
@@ -22,7 +48,11 @@
         const vm = new Vue({
             el: '#app', 
             data: {
-                paciente: 'joão da Silva'
+                paciente: 'joão da Silva',
+                sexo: '',
+                plano: '',
+                doencas: [],
+                diagnostico: ''
             },
             methods: {
             
